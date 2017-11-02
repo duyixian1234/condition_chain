@@ -15,70 +15,80 @@ class Condition:
         if not self.value == target:
             self.failures.append((stack()[0].function, target))
             self._result = False
-        self.success.append((stack()[0].function, target))
+        else:
+            self.success.append((stack()[0].function, target))
         return self
 
     def gt(self, target):
         if not self.value > target:
             self.failures.append((stack()[0].function, target))
             self._result = False
-        self.success.append((stack()[0].function, target))
+        else:
+            self.success.append((stack()[0].function, target))
         return self
 
     def lt(self, target):
         if not self.value > target:
             self.failures.append((stack()[0].function, target))
             self._result = False
-        self.success.append((stack()[0].function, target))
+        else:
+            self.success.append((stack()[0].function, target))
         return self
 
     def differ(self, target):
         if not self.value != target:
             self.failures.append((stack()[0].function, target))
             self._result = False
-        self.success.append((stack()[0].function, target))
+        else:
+            self.success.append((stack()[0].function, target))
         return self
 
     def be(self, target):
         if self.value is not target:
             self.failures.append((stack()[0].function, target))
             self._result = False
-        self.success.append((stack()[0].function, target))
+        else:
+            self.success.append((stack()[0].function, target))
         return self
 
     def contain(self, item):
         if item not in self.value:
             self.failures.append((stack()[0].function, item))
             self._result = False
-        self.success.append((stack()[0].function, item))
+        else:
+            self.success.append((stack()[0].function, item))
         return self
 
     def hold(self, num):
         if not len(self.value) == num:
             self.failures.append((stack()[0].function, num))
             self._result = False
-        self.success.append((stack()[0].function, num))
+        else:
+            self.success.append((stack()[0].function, num))
         return self
 
     def have(self, attribute):
         if not hasattr(self.value, attribute):
             self.failures.append((stack()[0].function, attribute))
             self._result = False
-        self.success.append((stack()[0].function, attribute))
+        else:
+            self.success.append((stack()[0].function, attribute))
         return self
 
     def instance_of(self, _class):
         if not isinstance(self.value, _class):
             self.failures.append((stack()[0].function, _class.__name__))
             self._result = False
-        self.success.append((stack()[0].function, _class.__name__))
+        else:
+            self.success.append((stack()[0].function, _class.__name__))
         return self
 
     def expect(self, func, result):
         if not func(self.value) == result:
             self.failures.append((stack()[0].function, (func.__name__, result)))
             self._result = False
-        self.success.append((stack()[0].function, (func.__name__, result)))
+        else:
+            self.success.append((stack()[0].function, (func.__name__, result)))
         return self
 
 
