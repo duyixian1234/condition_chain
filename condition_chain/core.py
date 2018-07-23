@@ -28,7 +28,7 @@ class Condition:
         return self
 
     def lt(self, target):
-        if not self.value > target:
+        if not self.value < target:
             self.failures.append((stack()[0].function, target))
             self._result = False
         else:
@@ -85,16 +85,9 @@ class Condition:
 
     def expect(self, func, result):
         if not func(self.value) == result:
-            self.failures.append((stack()[0].function, (func.__name__, result)))
+            self.failures.append((stack()[0].function, (func.__name__,
+                                                        result)))
             self._result = False
         else:
             self.success.append((stack()[0].function, (func.__name__, result)))
         return self
-
-
-if __name__ == '__main__':
-    condition = Condition(1).be(2).equal(
-        2.0 - 2).differ('a').instance_of(str).expect(lambda x: x, 1)
-    print(condition.result(), condition.success, condition.failures, sep='\n')
-    condition = Condition([1, 2, 3]).contain(1).have('append').hold(3).instance_of(list)
-    print(condition.result(), condition.success, condition.failures, sep='\n')
