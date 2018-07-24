@@ -10,8 +10,7 @@ pipeline {
     }
     stage('Test') {
         steps {
-          sh 'pipenv shell'
-          sh 'pytest --cov=condition_chain'
+          sh 'pipenv graph'
         }
     }
   }
