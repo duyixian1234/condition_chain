@@ -9,10 +9,10 @@ pipeline {
       }
     }
     stage('Test') {
-        steps {
-          sh 'pipenv install'
-          sh 'pipenv graph'
-        }
+      steps {
+        sh '''pipenv install
+pipenv run pytest'''
+      }
     }
   }
 }
