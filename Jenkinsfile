@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'echo "Hello world"'
         echo 'Build start'
-        sh 'python3 -V'
+        sh 'pipenv install'
+        echo 'Prepared'
       }
     }
   }
