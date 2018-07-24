@@ -10,8 +10,8 @@ pipeline {
     }
     stage('Test') {
         steps {
-          sh 'pipenv install'
-          sh 'pipenv run pytest --cov=condition_chain'
+          sh 'pipenv shell'
+          sh 'pytest --cov=condition_chain'
         }
     }
   }

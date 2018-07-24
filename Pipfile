@@ -10,6 +10,7 @@ pylint = "*"
 pytest = "*"
 pytest-cov = "*"
 yapf = "*"
+twine = "*"
 
 [requires]
 python_version = "3.6"
