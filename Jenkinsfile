@@ -18,7 +18,7 @@ pipeline {
         steps{
             sh 'pipenv install --dev'
             sh 'pipenv run python setup.py sdist bdist_wheel --universal'
-            sh 'll dist'
+            sh 'ls -l dist'
         }
     }
   }
