@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh '''pipenv install
+        sh '''pipenv install --dev
 pipenv run pytest'''
       }
     }
