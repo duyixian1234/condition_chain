@@ -10,9 +10,16 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh '''pipenv install --dev
-pipenv run pytest'''
+        sh 'pipenv install --dev'
+        sh 'pipenv run pytest --cov=condition_chain'
       }
+    }
+    stage ('Deploy'){
+        steps{
+            sh 'pipenv install --dev'
+            sh 'pipenv run python setup.py sdist bdist_wheel --universal'
+            sh 'll dist'
+        }
     }
   }
 }
