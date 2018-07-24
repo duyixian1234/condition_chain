@@ -8,5 +8,8 @@ pipeline {
         echo 'Prepared'
       }
     }
+    stage('Test') {
+        sh 'pipenv run pytest --cov=condition_chain'
+    }
   }
 }
