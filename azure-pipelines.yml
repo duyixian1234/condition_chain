@@ -1,0 +1,17 @@
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: 3.6
+      architecture: 'x64'
+
+  - script: |
+      python -m pip install --upgrade pip pipenv
+      pipenv install --dev
+    displayName: 'Install prerequisites'
+
+  - script: |
+      pipenv run pytest
+    displayName: 'Run tests'
