@@ -15,3 +15,7 @@ steps:
   - script: |
       pipenv run pytest
     displayName: 'Run tests'
+
+  - script: |
+      pipenv run python setup.py sdist bdist_wheel --universal
+    displayName: 'Build'
