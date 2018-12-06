@@ -11,6 +11,7 @@ pytest = "*"
 pytest-cov = "*"
 yapf = "*"
 twine = "*"
+pytest-pythonpath = "*"
 
 [requires]
 python_version = "3.6"
